@@ -73,15 +73,24 @@ Page({
     // let onlyMember = member1[i];
     // this.setData({ member: onlyMember })
     let member1 = ['曾晓铃', '谢明裔', '谭凤兰', '陈喜华', '余永辉', '伍子涛', '邱伟杰']
+    // function randomArrByOut(arr) {
+    //   let result = [];
+    //   let arrTemp = [...arr]; // splice会影响原数组，复制一个新的数组，防止影响原数组
+    //   while (arrTemp.length) {
+    //     let index = Math.floor(Math.random())*arrTemp.length;
+    //     result.push(arrTemp[index]);
+    //     arrTemp.splice(index, 1);
+    //   }
+    //   return result;
+    // }
     function randomArrByOut(arr) {
-      let result = [];
-      let arrTemp = [...arr]; // splice会影响原数组，复制一个新的数组，防止影响原数组
-      while (arrTemp.length) {
-        let index = Math.floor(Math.random() * arrTemp.length);
-        result.push(arrTemp[index]);
-        arrTemp.splice(index, 1);
-      }
-      return result;
+      　　for (var i = arr.length - 1; i >= 0; i--) {
+      　　　　var randomIndex = Math.floor(Math.random() * (i + 1));
+      　　　　var itemAtIndex = arr[randomIndex];
+      　　　　arr[randomIndex] = arr[i];
+      　　　　arr[i] = itemAtIndex;
+      　　}
+      　　return arr;
     }
     /**
      * 由于randomArrByOut随机的不太明显内部让他先随机五次显得明显
@@ -98,20 +107,29 @@ Page({
 
     let num = 2;
     let member1 = ['曾晓铃', '谢明裔', '谭凤兰', '陈喜华', '余永辉', '伍子涛', '邱伟杰']
+    // function randomArrByOut(arr) {
+    //   let result = [];
+    //   let arrTemp = [...arr]; // splice会影响原数组，复制一个新的数组，防止影响原数组
+    //   while (arrTemp.length) {
+    //     let index = Math.floor(Math.random() * arrTemp.length);
+    //     result.push(arrTemp[index]);
+    //     arrTemp.splice(index, 1);
+    //   }
+    //   return result;
+    // }
     function randomArrByOut(arr) {
-      let result = [];
-      let arrTemp = [...arr]; // splice会影响原数组，复制一个新的数组，防止影响原数组
-      while (arrTemp.length) {
-        let index = Math.floor(Math.random() * arrTemp.length);
-        result.push(arrTemp[index]);
-        arrTemp.splice(index, 1);
-      }
-      return result;
+      　　for (var i = arr.length - 1; i >= 0; i--) {
+      　　　　var randomIndex = Math.floor(Math.random() * (i + 1));
+      　　　　var itemAtIndex = arr[randomIndex];
+      　　　　arr[randomIndex] = arr[i];
+      　　　　arr[i] = itemAtIndex;
+      　　}
+      　　return arr;
     }
     /**
      * 由于randomArrByOut随机的不太明显内部让他先随机五次显得明显
      */
-    let randomMember = randomArrByOut(randomArrByOut(randomArrByOut(randomArrByOut(randomArrByOut(member1)))));
+    let randomMember =randomArrByOut(member1);
     let interval = setInterval(e => {
       if (num <= 0) {
         clearInterval(interval);
