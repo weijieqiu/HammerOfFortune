@@ -1,0 +1,8 @@
+<!--pages/shark/shark.wxml-->
+<!--pages/hammer/hammer.wxml-->
+<view class="container">
+  <!-- <text class="member">{{member}}</text> -->
+  <view wx:key="idx" wx:for="{{member}}" wx:for-index="idx" class="member">
+   {{idx + 1}}: {{member[idx]}}
+  </view>
+</view>
