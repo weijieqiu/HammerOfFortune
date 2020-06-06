@@ -1,0 +1,9 @@
+<!--pages/about/about.wxml-->
+<view class="container">
+  <view class="about-avatar-image">
+    <image src="../../images/badaozongcai.jpg" ></image>
+  </view>
+   <view class="about">
+  	<text>我们是🐶肥柴联盟🐕</text>
+  </view>
+</view>

@@ -1,16 +1,33 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
     "pages/hammer/hammer",
-    "pages/shark/shark"
+    "pages/shark/shark",
+    "pages/one/one",
+    "pages/king/king",
+    "pages/settings/settings",
+    "pages/operation/operation",
+    "pages/about/about"
   ],
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "模式入口"
+    },{
+      "pagePath": "pages/settings/settings",
+      "text": "设置"
+    }, {
+      "pagePath": "pages/about/about",
+      "text": "关于我们"
+    }]
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
+  "debug": true,
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

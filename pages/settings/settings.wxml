@@ -1,0 +1,6 @@
+<!--pages/settings/settings.wxml-->
+<view class="container">
+    <view class="button-sp-area">
+        <button class="mini-btn" type="primary" size="mini" bindtap="addUserInfo">成员信息管理</button>
+    </view>
+</view>

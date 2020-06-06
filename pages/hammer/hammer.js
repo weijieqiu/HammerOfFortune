@@ -8,7 +8,8 @@ Page({
     member: "",
     //验证码倒计时
     verifyBtnDisable: false,
-    verifyBtnText: '锤我'
+    verifyBtnText: '锤我',
+    storageData: ''
   },
 
   /**
@@ -22,14 +23,34 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    var that = this;
+    wx.getStorage({
+        key: 'user',
+        success(res) {
+            console.log(res.data)
+            let newStorageData =res.data;
+            that.setData({
+                storageData: newStorageData,
+            })
+        }
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    wx.getStorage({
+        key: 'user',
+        success(res) {
+            console.log(res.data)
+            let newStorageData =res.data;
+            that.setData({
+                storageData: newStorageData,
+            })
+        }
+    })
   },
 
   /**
@@ -43,7 +64,17 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    var that = this;
+    wx.getStorage({
+        key: 'user',
+        success(res) {
+            console.log(res.data)
+            let newStorageData =res.data;
+            that.setData({
+                storageData: newStorageData,
+            })
+        }
+    })
   },
 
   /**
@@ -66,57 +97,9 @@ Page({
   onShareAppMessage: function () {
 
   },
-  hammer: function() {
-    // let member1 = ['曾晓铃','谢明裔','谭凤兰','陈喜华','余永辉','伍子涛','邱伟杰']
-    // let i = Math.floor(Math.random() * 7);
-    // console.log(i);
-    // let onlyMember = member1[i];
-    // this.setData({ member: onlyMember })
-    let member1 = ['曾晓铃', '谢明裔', '谭凤兰', '陈喜华', '余永辉', '伍子涛', '邱伟杰']
-    // function randomArrByOut(arr) {
-    //   let result = [];
-    //   let arrTemp = [...arr]; // splice会影响原数组，复制一个新的数组，防止影响原数组
-    //   while (arrTemp.length) {
-    //     let index = Math.floor(Math.random())*arrTemp.length;
-    //     result.push(arrTemp[index]);
-    //     arrTemp.splice(index, 1);
-    //   }
-    //   return result;
-    // }
-    function randomArrByOut(arr) {
-      　　for (var i = arr.length - 1; i >= 0; i--) {
-      　　　　var randomIndex = Math.floor(Math.random() * (i + 1));
-      　　　　var itemAtIndex = arr[randomIndex];
-      　　　　arr[randomIndex] = arr[i];
-      　　　　arr[i] = itemAtIndex;
-      　　}
-      　　return arr;
-    }
-    /**
-     * 由于randomArrByOut随机的不太明显内部让他先随机五次显得明显
-     */
-    let randomMember = randomArrByOut(randomArrByOut(randomArrByOut(randomArrByOut(randomArrByOut(member1)))));
-    this.countDown(randomMember);
-    
-  },
-  //验证码倒计时
-
   countDown: function () {
-    
-   
-
     let num = 2;
-    let member1 = ['曾晓铃', '谢明裔', '谭凤兰', '陈喜华', '余永辉', '伍子涛', '邱伟杰']
-    // function randomArrByOut(arr) {
-    //   let result = [];
-    //   let arrTemp = [...arr]; // splice会影响原数组，复制一个新的数组，防止影响原数组
-    //   while (arrTemp.length) {
-    //     let index = Math.floor(Math.random() * arrTemp.length);
-    //     result.push(arrTemp[index]);
-    //     arrTemp.splice(index, 1);
-    //   }
-    //   return result;
-    // }
+    let member1 = this.data.storageData;
     function randomArrByOut(arr) {
       　　for (var i = arr.length - 1; i >= 0; i--) {
       　　　　var randomIndex = Math.floor(Math.random() * (i + 1));
@@ -133,11 +116,6 @@ Page({
     let interval = setInterval(e => {
       if (num <= 0) {
         clearInterval(interval);
-        
-        // let i = Math.floor(Math.random() * 7);
-        // console.log(i);
-        // let onlyMember = randomMemberTemp[i];
-
         this.setData({
           verifyBtnText: "锤我",
           verifyBtnDisable: false,
@@ -158,5 +136,10 @@ Page({
       }
 
     }, 500)
+  },
+  gotoOpeartion: function(){
+    wx.navigateTo({
+      url: '../../pages/operation/operation',
+    })
   }
 })

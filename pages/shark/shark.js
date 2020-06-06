@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    member: ""
+    member: "",
+    isShark: false,
+    storageData: []
   },
 
   /**
@@ -20,14 +22,35 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    var that = this;
+    wx.getStorage({
+      key: 'user',
+      success(res) {
+        console.log(res.data)
+        let newStorageData = res.data;
+        console.log(newStorageData)
+        that.setData({
+          storageData: newStorageData,
+        })
+        console.log(that.data.storageData)
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow() {
     var that = this;
+    wx.getStorage({
+      key: 'user',
+      success(res) {
+        let newStorageData = res.data;
+        that.setData({
+          storageData: newStorageData,
+        })
+      }
+    })
     this.isShow = true;
     wx.onAccelerometerChange(function (e) {
       if (!that.isShow) {
@@ -36,11 +59,32 @@ Page({
       console.log(e.x)
       console.log(e.y)
       console.log(e.z)
-      if (e.x > 0.5 && e.y > 0.5) {
+      if (e.x > 0.3 && e.y > 0.3 || e.y > 0.3 &&  e.z > 0.3) {
         wx.showToast({
           title: '摇一摇成功!',
           icon: 'success',
-          duration: 2000
+          duration: 1000,
+          success() {
+            wx.vibrateLong({
+              success: (res) => {}
+            })
+          }
+        })
+        let member1 = that.data.storageData;
+
+        function randomArrByOut(arr) {
+          for (var i = arr.length - 1; i >= 0; i--) {
+            var randomIndex = Math.floor(Math.random() * (i + 1));
+            var itemAtIndex = arr[randomIndex];
+            arr[randomIndex] = arr[i];
+            arr[i] = itemAtIndex;
+          }
+          return arr;
+        }
+        let randomMember = randomArrByOut(member1)
+        that.setData({
+          isShark:true,
+          member: randomMember
         })
       }
     })
@@ -59,6 +103,16 @@ Page({
    */
   onUnload: function () {
     this.isShow = false;
+    var that = this;
+        wx.getStorage({
+            key: 'user',
+            success(res) {
+                let newStorageData = res.data;
+                that.setData({
+                    storageData: newStorageData,
+                })
+            }
+        })
   },
 
   /**
@@ -80,5 +134,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  gotoOpeartion: function () {
+    wx.navigateTo({
+      url: '../../pages/operation/operation',
+    })
   }
 })

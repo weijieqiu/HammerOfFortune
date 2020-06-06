@@ -13,4 +13,10 @@
   <view class="shark-of-fortune">
     <button bindtap="gotoSharkOfFortune">幸运摇一摇</button>
   </view>
+   <view class="one-of-fortune">
+    <button bindtap="gotoOneOfFortune">幸运之一</button>
+  </view>
+  <view class="king-of-fortune">
+    <button bindtap="gotoKingOfFortune">幸运之王</button>
+  </view>
 </view>

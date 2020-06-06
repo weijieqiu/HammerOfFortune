@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -21,10 +21,11 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": false
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.1",
+	"libVersion": "2.10.4",
 	"appid": "wx84af574ff9137f2f",
 	"projectname": "HammerOfFortune",
 	"debugOptions": {
@@ -69,6 +70,26 @@
 					"name": "pages/shark/shark",
 					"pathName": "pages/shark/shark",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/about/about",
+					"pathName": "pages/about/about",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/settings/settings",
+					"pathName": "pages/settings/settings",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/operation/operation",
+					"pathName": "pages/operation/operation",
 					"scene": null
 				}
 			]

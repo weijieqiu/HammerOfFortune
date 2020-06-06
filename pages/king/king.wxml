@@ -1,0 +1,22 @@
+<!--pages/hammer/hammer.wxml-->
+<text class="title">说明: 规则从以下数据中随机抽取一个</text>
+<view>
+<text class="titleSub">{{storageData}}</text>
+</view>
+
+<view class="container">
+	<!-- <text class="member">{{member}}</text> -->
+	<view wx:if="{{storageData != ''}}">
+			<text class="member">{{member[3]}}</text>
+	</view>
+	<view wx:else>
+		<button type="warn" bindtap="gotoOpeartion">暂无数据，点击前往添加</button>
+	</view>
+
+	<view>
+		<!-- <button bindtap="hammer">锤我</button> -->
+		<view catchtap="countDown" class="click-container">
+			<button class="click" disabled="{{verifyBtnDisable}}" bindtap="countDown">{{verifyBtnText}}</button>
+		</view>
+	</view>
+</view>

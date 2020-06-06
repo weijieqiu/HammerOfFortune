@@ -1,0 +1,11 @@
+/* pages/settings/settings.wxss */
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-around;
+  padding: 16px;
+}
+  /* .mini-btn{
+    margin-right: 10rpx;
+  } */

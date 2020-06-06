@@ -27,7 +27,7 @@
   justify-content: space-around;
 }
 .hammer-of-fortune{
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 button{
   margin: 2.5rem;

@@ -1,9 +1,15 @@
 <!--pages/hammer/hammer.wxml-->
 <view class="container">
   <!-- <text class="member">{{member}}</text> -->
-  <view wx:key="idx" wx:for="{{member}}" wx:for-index="idx" class="member">
-   {{idx + 1}}: {{member[idx]}}
+  <view wx:if="{{storageData != ''}}">
+    <view wx:key="idx" wx:for="{{member}}" wx:for-index="idx" class="member">
+    {{idx + 1}}: {{member[idx]}}
+    </view>
   </view>
+  <view wx:else>
+    <button type="warn" bindtap="gotoOpeartion">暂无数据，点击前往添加</button>
+  </view>
+ 
   <view>
     <!-- <button bindtap="hammer">锤我</button> -->
     <view catchtap="hammer" class="hammer-container">

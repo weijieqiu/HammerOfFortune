@@ -1,0 +1,39 @@
+/* pages/hammer/hammer.wxss */
+Page {
+    background-color: #ECC0A8;
+}
+.title {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #9F4311;
+}
+.titleSub {
+    font-size: 32rpx;
+    color: rgb(17, 150, 159);
+}
+.container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.member {
+    font-size: 64rpx;
+    font-weight: bold;
+    color: #9F4311;
+}
+
+.click-container {
+    margin-top: 200rpx;
+    border: 1px solid #EA5A3C;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.click {
+    font-size: 32rpx;
+    font-weight: bold;
+    line-height: 80rpx;
+    color: #EA5A3C;
+}
