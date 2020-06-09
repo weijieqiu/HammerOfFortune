@@ -2,16 +2,16 @@
 <view class='container'>
 	<form bindsubmit='formSubmit' bindreset='formReset'>
 		<view class='row'>
-			<text>姓名：</text>
-			<input type='text' name='name' placeholder='请输入姓名' bindinput="bindKeyInput" value="{{name}}"></input>
+			<text>数据：</text>
+			<input type='text' name='name' placeholder='请输入数据' bindinput="bindKeyInput" value="{{name}}"></input>
 		</view>
 		<view class='row'>
 			<button type='primary' size="mini" form-type='submit'>输入提交</button>
 			<button type='warn' size="mini" bindtap='deleteOneMember'>输入删除</button>
 		</view>
 		<view class='row'>
-			<button type='default' size="mini" bindtap="getSmallSystemMember">一键获取小系统项目成员</button>
-			<button type='default' size="mini" bindtap="clearSmallSystemMember">一键清除成员</button>
+			<!-- <button type='default' size="mini" bindtap="getSmallSystemMember">一键获取小系统项目成员</button> -->
+			<button type='default' size="mini" bindtap="clearSmallSystemMember">一键清除数据</button>
 		</view>
 	</form>
 	<view class='table'>
